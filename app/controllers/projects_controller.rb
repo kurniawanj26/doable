@@ -40,6 +40,15 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def destroy
+    @project = Project.find(params[:id])
+
+    @project.destroy
+    flash[:notice] = "Project deleted"
+    # projects_path is the index file to show all the project(s)
+    redirect_to projects_path
+  end
+
   def project_params
     # look at inside of the project n only allow the name field to come through
     # a.k.a. strong parameter
