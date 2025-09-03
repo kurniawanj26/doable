@@ -8,4 +8,26 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
   end
+
+  def new
+    @project = Project.new
+  end
+
+  def create
+    @project = Project.new(project_params)
+
+    if @project.save
+      redirect_to project_path(@project)
+    else
+      # :unprocessable_entity = 422 status code
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def project_params
+    # look at inside of the project n only allow the name field to come through
+    # a.k.a. strong parameter
+    # built in safety feature, protect the app from unwanted / malicious data
+    params.require(:project).permit(:name)
+  end
 end
