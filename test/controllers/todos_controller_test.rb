@@ -33,7 +33,7 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
         completed: false,
         priority: 1,
         project_id: project.id # 👈 wajib dikirim
-      }}
+      } }
     end
 
     assert_redirected_to todo_url(Todo.last)
