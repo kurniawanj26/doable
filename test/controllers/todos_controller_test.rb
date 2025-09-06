@@ -24,16 +24,16 @@ class TodosControllerTest < ActionDispatch::IntegrationTest
   # end
 
   test "should create todo" do
-    project = projects(:one)   # ambil fixture project
+    project = projects(:one) # ambil fixture project
 
     assert_difference("Todo.count") do
-      post todos_url, params: { todo: { 
-        name: "New Todo", 
-        description: "desc", 
+      post todos_url, params: { todo: {
+        name: "New Todo",
+        description: "desc",
         completed: false,
         priority: 1,
-        project_id: project.id   # 👈 wajib dikirim
-      } }
+        project_id: project.id # 👈 wajib dikirim
+      }}
     end
 
     assert_redirected_to todo_url(Todo.last)

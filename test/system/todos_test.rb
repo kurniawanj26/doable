@@ -10,12 +10,26 @@ class TodosTest < ApplicationSystemTestCase
     assert_selector "h1", text: "Todos"
   end
 
+  # test "should create todo" do
+  #   visit todos_url
+  #   click_on "New todo"
+
+  #   fill_in "Description", with: @todo.description
+  #   fill_in "Name", with: @todo.name
+  #   click_on "Create Todo"
+
+  #   assert_text "Todo was successfully created"
+  #   click_on "Back"
+  # end
+
   test "should create todo" do
     visit todos_url
     click_on "New todo"
 
-    fill_in "Description", with: @todo.description
-    fill_in "Name", with: @todo.name
+    fill_in "Name", with: "New Todo"
+    fill_in "Description", with: "Some desc"
+    select "Project One", from: "Project"   # 👈 pilih project fixture
+
     click_on "Create Todo"
 
     assert_text "Todo was successfully created"
