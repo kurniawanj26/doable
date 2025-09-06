@@ -2,14 +2,6 @@
 
 one:
   name: MyString
-  description: MyText
-  completed: false
-  priority: 1
-  project: one # 👈 refer ke projects.yml
 
 two:
   name: MyString
-  description: MyText
-  completed: false
-  priority: 1
-  project: two # 👈 refer ke projects.yml
